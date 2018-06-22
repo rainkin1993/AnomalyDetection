@@ -1,0 +1,189 @@
+{
+  "firefox.exe": {
+    "operation2normalCallstacks": {
+      "Thread Exit": [
+        [
+          "ntdll.dll + 0x5184a",
+          "wow64.dll + 0x1be32",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x7e707",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x20086",
+          "ntdll.dll + 0x5d5d1",
+          "MSVCR120.dll + 0x2c0dc"
+        ],
+        [
+          "ntdll.dll + 0x5184a",
+          "wow64.dll + 0x1be32",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x7e707",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x20086",
+          "ntdll.dll + 0x5d5d1",
+          "ntdll.dll + 0x61b09",
+          "kernel32.dll + 0x133ca",
+          "ntdll.dll + 0x39ed2",
+          "ntdll.dll + 0x39ea5"
+        ],
+        [
+          "ntdll.dll + 0x5184a"
+        ]
+      ],
+      "Thread Create": [
+        [
+          "ntdll.dll + 0x51d9a",
+          "wow64.dll + 0x20411",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x7e707",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x208a6",
+          "KERNELBASE.dll + 0x13054",
+          "kernel32.dll + 0x134f5",
+          "MSVCR120.dll + 0x2bfa1"
+        ],
+        [
+          "ntdll.dll + 0x5295a",
+          "wow64.dll + 0x28038",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x44956",
+          "ntdll.dll + 0x41a17",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x21ad2",
+          "ntdll.dll + 0x6cfdb",
+          "ntdll.dll + 0x6d0fb",
+          "ntdll.dll + 0x599cf",
+          "ntdll.dll + 0x59ab1",
+          "ntdll.dll + 0x5075c",
+          "ntdll.dll + 0x6c869",
+          "ntdll.dll + 0x709ac",
+          "kernel32.dll + 0x3cb54"
+        ],
+        [
+          "ntdll.dll + 0x51d9a",
+          "wow64.dll + 0x20411",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x44956",
+          "ntdll.dll + 0x41a17",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x208a6",
+          "KERNELBASE.dll + 0x13054",
+          "kernel32.dll + 0x134f5",
+          "xul.dll + 0x633d5"
+        ],
+        [
+          "ntdll.dll + 0x51d9a",
+          "wow64.dll + 0x20411",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x44956",
+          "ntdll.dll + 0x41a17",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x208a6",
+          "KERNELBASE.dll + 0x13054",
+          "kernel32.dll + 0x134f5",
+          "sandboxbroker.dll + 0x7ffa"
+        ],
+        [
+          "ntdll.dll + 0x51d9a",
+          "wow64.dll + 0x20411",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x44956",
+          "ntdll.dll + 0x41a17",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x208a6",
+          "KERNELBASE.dll + 0x13054",
+          "kernel32.dll + 0x134f5",
+          "MSVCR120.dll + 0x2bfa1"
+        ]
+      ],
+      "WriteFile": [
+        [
+          "ntdll.dll + 0x517ca",
+          "wow64.dll + 0x1b223",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x44956",
+          "ntdll.dll + 0x41a17",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x1ffbe",
+          "xul.dll + 0x2b70a1"
+        ],
+        [
+          "wow64cpu.dll + 0x2e09",
+          "wow64cpu.dll + 0x29f5",
+          "wow64.dll + 0xd07e"
+        ],
+        [
+          "wow64cpu.dll + 0x2e09",
+          "wow64cpu.dll + 0x29f5",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x44956",
+          "ntdll.dll + 0x41a17",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x1f92d",
+          "xul.dll + 0x2b75fd"
+        ],
+        [
+          "wow64cpu.dll + 0x2e09"
+        ],
+        [
+          "ntdll.dll + 0x517ca",
+          "wow64.dll + 0x1b223",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x7e707",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x1ffbe",
+          "xul.dll + 0x2b70a1"
+        ],
+        [
+          "ntdll.dll + 0x5140a",
+          "wow64.dll + 0xf2cd",
+          "wow64.dll + 0xcf87",
+          "wow64cpu.dll + 0x2776",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x7e707",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x1f9e2",
+          "KERNELBASE.dll + 0x188f4"
+        ],
+        [
+          "wow64cpu.dll + 0x2e09",
+          "wow64cpu.dll + 0x29f5",
+          "wow64.dll + 0xd07e",
+          "wow64.dll + 0xc549",
+          "ntdll.dll + 0x7e707",
+          "ntdll.dll + 0x2c32e",
+          "ntdll.dll + 0x1f92d",
+          "xul.dll + 0x2b75fd"
+        ]
+      ]
+    }
+  }
+}

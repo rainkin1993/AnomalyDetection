@@ -1,0 +1,1630 @@
+{
+  "notepad.exe": [
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2068, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 764",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2772, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 624, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1456",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2916",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 624",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "WriteFile",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5139a",
+        "KERNELBASE.dll + 0x1b8b",
+        "kernel32.dll + 0x235d6",
+        "0x37e0d69"
+      ],
+      "path": "C:\\Users\\rainkin1993\\Documents\\malicious.txt",
+      "detail": "Offset: 0, Length: 4,022,272, Priority: Normal",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1296",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2260, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1212, User Time: 0.0000000, Kernel Time: 0.0156001",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1920, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51206",
+        "USER32.dll + 0x19e6a",
+        "USER32.dll + 0x19e9e",
+        "SHELL32.dll + 0xa69e8",
+        "SHLWAPI.dll + 0xc71e",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2608, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2028, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "LPK.dll + 0x34f3",
+        "LPK.dll + 0x3390"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2536, User Time: 280.5989987, Kernel Time: 27.8461785",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1776",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1352",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 676, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2776, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2112, User Time: 0.0156001, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1920",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2168, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2920",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1760, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "WriteFile",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5139a",
+        "KERNELBASE.dll + 0x1b8b",
+        "kernel32.dll + 0x235d6",
+        "notepad.exe + 0x8a96",
+        "notepad.exe + 0x8d6f",
+        "notepad.exe + 0x4c97",
+        "notepad.exe + 0x14eb",
+        "USER32.dll + 0x19bd1",
+        "USER32.dll + 0x172cb",
+        "USER32.dll + 0x16829",
+        "ntdll.dll + 0x51225",
+        "USER32.dll + 0x28a2a",
+        "USER32.dll + 0x28a30",
+        "notepad.exe + 0x10a1",
+        "notepad.exe + 0x133c",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "C:\\Users\\rainkin1993\\Documents\\normal.txt",
+      "detail": "Offset: 0, Length: 41, Priority: Normal",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1396",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 764, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2688",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1052",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1760, User Time: 0.0156001, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2600, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2956",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1008, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2672, User Time: 0.0000000, Kernel Time: 0.0156001",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1760",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2672",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2256",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1184, User Time: 0.0000000, Kernel Time: 0.0312002",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1312",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1084",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1388, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2028",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1076, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1908, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2720, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1296, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2688, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "WriteFile",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5139a",
+        "KERNELBASE.dll + 0x1b8b",
+        "kernel32.dll + 0x235d6",
+        "0x37e0d69"
+      ],
+      "path": "C:\\Users\\rainkin1993\\Documents\\malicious.txt",
+      "detail": "Offset: 4,022,272, Length: 1,728, Priority: Normal",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2592, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 580, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "SHLWAPI.dll + 0xc8c3",
+        "SHLWAPI.dll + 0xc95f",
+        "SearchFolder.dll + 0x18363",
+        "SearchFolder.dll + 0x13b09",
+        "SHELL32.dll + 0x131286",
+        "SHLWAPI.dll + 0xc71e",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2624",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2244, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1724",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 644, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2728",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2224",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 676",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1776, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1712, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1352, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 3048",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2956, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2180, User Time: 0.0000000, Kernel Time: 0.0312002",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1364, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1712",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1396, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 420, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1476, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2152, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 420",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2260",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2916, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2912, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1208",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5165a",
+        "KERNELBASE.dll + 0x1203",
+        "ole32.dll + 0x101d0",
+        "ole32.dll + 0x10106",
+        "ole32.dll + 0x10182",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2724, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "0x360193d"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2232, User Time: 0.1716011, Kernel Time: 0.2340015",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "SHLWAPI.dll + 0xc8c3",
+        "SHLWAPI.dll + 0xc95f",
+        "SHELL32.dll + 0x131c0d",
+        "SHELL32.dll + 0x131a9d",
+        "SHELL32.dll + 0x12fa5c",
+        "SHELL32.dll + 0x12f98f",
+        "SHELL32.dll + 0x12cb12",
+        "SHELL32.dll + 0x12c53e",
+        "SHELL32.dll + 0x12dbf4",
+        "SHELL32.dll + 0x12dcca",
+        "ExplorerFrame.dll + 0x4b91d",
+        "ExplorerFrame.dll + 0x4b6af",
+        "ExplorerFrame.dll + 0x4b649",
+        "ExplorerFrame.dll + 0xbe50",
+        "SHELL32.dll + 0x9f0eb",
+        "SHELL32.dll + 0xa2c8a",
+        "SHELL32.dll + 0xa2de2",
+        "SHLWAPI.dll + 0x13843",
+        "ntdll.dll + 0x215ab",
+        "ntdll.dll + 0x20c26",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2140",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1508, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2252",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1380",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2368",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2600",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2244",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1364",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2256, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2084",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1076",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x52c1a"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1324",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2068",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1084, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1380, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2816",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2948, User Time: 0.0000000, Kernel Time: 0.0312002",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1312, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2212, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "msvcrt.dll + 0x73d2",
+        "duser.dll + 0xfcf6",
+        "duser.dll + 0xf991",
+        "duser.dll + 0xf8a2",
+        "dui70.dll + 0x12c83",
+        "ExplorerFrame.dll + 0x4d4c",
+        "ExplorerFrame.dll + 0x26313",
+        "ExplorerFrame.dll + 0x26206",
+        "COMDLG32.dll + 0x5e84",
+        "COMDLG32.dll + 0x5503",
+        "COMDLG32.dll + 0x56a2",
+        "USER32.dll + 0x2608f",
+        "USER32.dll + 0x27792",
+        "USER32.dll + 0x276c2",
+        "USER32.dll + 0x19bd1",
+        "USER32.dll + 0x261c9",
+        "USER32.dll + 0x24ec3",
+        "USER32.dll + 0x24f52",
+        "USER32.dll + 0x24f88",
+        "COMDLG32.dll + 0x28e8",
+        "notepad.exe + 0x1ea2",
+        "notepad.exe + 0x2308",
+        "notepad.exe + 0x219b",
+        "notepad.exe + 0x14eb",
+        "USER32.dll + 0x19bd1",
+        "USER32.dll + 0x198da",
+        "notepad.exe + 0x10bc",
+        "notepad.exe + 0x133c",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1640",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2224, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2252, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "ntdll.dll + 0x16f59",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2568, User Time: 0.0000000, Kernel Time: 0.0312002",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978"
+      ],
+      "path": "",
+      "detail": "Thread ID: 992, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2084, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2212",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2168",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2780, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "WriteFile",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5139a",
+        "KERNELBASE.dll + 0x1b8b",
+        "kernel32.dll + 0x235d6",
+        "notepad.exe + 0x8a96",
+        "notepad.exe + 0x8d6f",
+        "notepad.exe + 0x4ce6",
+        "notepad.exe + 0x14eb",
+        "USER32.dll + 0x19bd1",
+        "USER32.dll + 0x172cb",
+        "USER32.dll + 0x16829",
+        "ntdll.dll + 0x51225",
+        "USER32.dll + 0x28a2a",
+        "USER32.dll + 0x28a30",
+        "notepad.exe + 0x10a1",
+        "notepad.exe + 0x133c",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "C:\\Users\\rainkin1993\\Documents\\normal.txt",
+      "detail": "Offset: 0, Length: 24, Priority: Normal",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2816, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "SHLWAPI.dll + 0xc8c3",
+        "SHLWAPI.dll + 0xc95f",
+        "SearchFolder.dll + 0x17513",
+        "SearchFolder.dll + 0x17443",
+        "SearchFolder.dll + 0x1732c",
+        "SearchFolder.dll + 0x17230",
+        "SearchFolder.dll + 0x170d1",
+        "SearchFolder.dll + 0x16f15",
+        "SearchFolder.dll + 0xa643",
+        "SearchFolder.dll + 0xa584",
+        "SearchFolder.dll + 0xa48d",
+        "SearchFolder.dll + 0xa32f",
+        "SearchFolder.dll + 0xa7cd",
+        "SHELL32.dll + 0x1356e5",
+        "SHELL32.dll + 0x13558f",
+        "SHELL32.dll + 0x135c06",
+        "SHELL32.dll + 0x1352a7",
+        "SHELL32.dll + 0x6c684",
+        "SHELL32.dll + 0x9f0eb",
+        "SHELL32.dll + 0xa2c8a",
+        "SHELL32.dll + 0xa2de2",
+        "SHLWAPI.dll + 0x13843",
+        "ntdll.dll + 0x215ab",
+        "ntdll.dll + 0x16bd2",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1896",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1388",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2912",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2368, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1456, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1208, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2224, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 580",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2728, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1052, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2720",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 3048, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1008",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 1724, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Exit",
+      "userModeCallstack": [
+        "ntdll.dll + 0x5184a",
+        "ntdll.dll + 0x46978",
+        "kernel32.dll + 0x16535",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2920, User Time: 0.0000000, Kernel Time: 0.0000000",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 644",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "ole32.dll + 0x1440f",
+        "ole32.dll + 0x14ac4",
+        "ole32.dll + 0x10ce4",
+        "ole32.dll + 0x19df",
+        "ole32.dll + 0x19514",
+        "SHELL32.dll + 0x12c202",
+        "SHELL32.dll + 0x12f4b5",
+        "SearchFolder.dll + 0xa3db",
+        "SearchFolder.dll + 0xa32f",
+        "SearchFolder.dll + 0xa7cd",
+        "SHELL32.dll + 0x12f96e",
+        "SHELL32.dll + 0x12cb12",
+        "SHELL32.dll + 0x12c53e",
+        "SHELL32.dll + 0x12dbf4",
+        "SHELL32.dll + 0x12dcca",
+        "ExplorerFrame.dll + 0x4b91d",
+        "ExplorerFrame.dll + 0x4b6af",
+        "ExplorerFrame.dll + 0x4b649",
+        "ExplorerFrame.dll + 0xbe50",
+        "SHELL32.dll + 0x9f0eb",
+        "SHELL32.dll + 0xa2c8a",
+        "SHELL32.dll + 0xa2de2",
+        "SHLWAPI.dll + 0x13843",
+        "ntdll.dll + 0x215ab",
+        "ntdll.dll + 0x20c26",
+        "kernel32.dll + 0x1652d",
+        "ntdll.dll + 0x2c521"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2724",
+      "imagePath": "notepad.exe"
+    },
+    {
+      "operation": "Thread Create",
+      "userModeCallstack": [
+        "ntdll.dll + 0x51d9a",
+        "KERNELBASE.dll + 0xb4a3",
+        "kernel32.dll + 0x165b6",
+        "0x3609846"
+      ],
+      "path": "",
+      "detail": "Thread ID: 2780",
+      "imagePath": "notepad.exe"
+    }
+  ]
+}

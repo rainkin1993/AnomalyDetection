@@ -256,9 +256,9 @@ public class AnomalyDetection {
 				Node dllPathNode = frame.selectSingleNode("path");
 //				System.out.println(locationNode);
 				if (locationNode == null || dllPathNode == null){
-					userModeLocations.add(address);
+					userModeLocations.add(address.toLowerCase());
 				} else {
-					userModeLocations.add(locationNode.getText());
+					userModeLocations.add(locationNode.getText().toLowerCase());
 					if (isStopAtUserModuleAddress){ 
 						String lowcaseDllPath = dllPathNode.getText().toLowerCase();
 						if (!lowcaseDllPath.contains("\\windows\\system32") 

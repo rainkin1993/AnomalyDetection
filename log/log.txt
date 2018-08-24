@@ -1,0 +1,14 @@
+[INFO ] 2018-08-24 17:46:22,807 method:ParseProcmonXML.main(ParseProcmonXML.java:36)
+hello!11111111111111
+[INFO ] 2018-08-24 17:47:01,075 method:ParseProcmonXML.main(ParseProcmonXML.java:36)
+hello!11111111111111
+[INFO ] 2018-08-24 17:47:01,998 method:ParseProcmonXML.main(ParseProcmonXML.java:36)
+hello!11111111111111
+[INFO ] 2018-08-24 17:48:30,066 method:ParseProcmonXML.main(ParseProcmonXML.java:78)
+Starting Current Date: 星期五 2018.08.24 at 05:48:30 下午 CST
+[INFO ] 2018-08-24 17:49:03,451 method:ParseProcmonXML.main(ParseProcmonXML.java:78)
+Starting Current Date: 星期五 2018.08.24 at 05:49:03 下午 CST
+[ERROR] 2018-08-24 17:49:56,300 method:ParseProcmonXML.main(ParseProcmonXML.java:74)
+command error
+[ERROR] 2018-08-24 17:50:29,373 method:ParseProcmonXML.main(ParseProcmonXML.java:74)
+command error

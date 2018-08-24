@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+
+    <!-- Console Appender -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+    </Console>
+
+    <!-- Rolling File Appender -->
+    <RollingFile name="RollingFile">
+      <FileName>log/mylog.log</FileName>
+      <FilePattern>C:/log/time-based-logs/%d{yyyy-MM-dd-hh-mm}.log.zip</FilePattern>
+      <PatternLayout>
+        <Pattern>%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="2" modulate="true" />
+      </Policies>
+      <DefaultRolloverStrategy max="5" />
+    </RollingFile>
+
+  </Appenders>
+  <Loggers>
+    <Logger name="com.boraji.tutorial.log4j2" level="debug" additivity="false">
+      <AppenderRef ref="RollingFile" />
+      <AppenderRef ref="Console" />
+    </Logger>
+    <Root level="trace">
+      <AppenderRef ref="Console" />
+    </Root>
+  </Loggers>
+</Configuration>

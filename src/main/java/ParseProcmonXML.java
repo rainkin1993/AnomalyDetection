@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -29,6 +31,9 @@ public class ParseProcmonXML {
 	
 
 	public static void main(String[] args) throws DocumentException, IOException {
+		Logger logger = Logger.getLogger(ParseProcmonXML.class); 
+		PropertyConfigurator.configure("log/log4j.properties");
+		
 		String xmlFilePath = "C:/Users/rainkin1993/Desktop/Logfile1.XML";
 		String fileKeyword = "None";
 		String sigFilePath = "./callstackSig.txt";
@@ -42,7 +47,7 @@ public class ParseProcmonXML {
 					fileKeyword  = args[2];
 					sigFilePath = args[3];
 				} else {
-					System.out.println("command format error");
+					logger.error("command format error");
 					return;
 				}
 				
@@ -52,25 +57,28 @@ public class ParseProcmonXML {
 					xmlFilePath = args[1];
 					sigFilePath = args[2];
 				} else {
-					System.out.println("command format error");
+					logger.error("command format error");
 					return;
 				}
 				
 				break;
 				
 			default:
-				System.out.println("command error");
+				logger.error("command error");
 				return;
 				
 			}
 			
 			
-		}		
+		} else {
+			logger.error("command error");
+			return;
+		}
 		
 		// load xml file
 		Date dNow = new Date();
 		SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
-		System.out.println("Current Date: " + ft.format(dNow));
+		logger.info("Starting Current Date: " + ft.format(dNow));
 
 		File inputXmlFile = new File(xmlFilePath);
 		SAXReader saxReader = new SAXReader();
@@ -78,7 +86,7 @@ public class ParseProcmonXML {
 
 		dNow = new Date();
 		ft = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
-		System.out.println("Current Date: " + ft.format(dNow));
+		logger.info("Ending Current Date: " + ft.format(dNow));
 		
 		
 		switch (command){
@@ -90,7 +98,7 @@ public class ParseProcmonXML {
 				break;
 			
 			default:
-				System.out.println("No command");
+				logger.error("No command");
 
 		}
 		

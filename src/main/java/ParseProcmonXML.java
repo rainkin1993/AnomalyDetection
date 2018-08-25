@@ -28,10 +28,9 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 public class ParseProcmonXML {
-	
+	static Logger logger = Logger.getLogger(ParseProcmonXML.class); 
 
-	public static void main(String[] args) throws DocumentException, IOException {
-		Logger logger = Logger.getLogger(ParseProcmonXML.class); 
+	public static void main(String[] args) throws DocumentException, IOException {		
 		PropertyConfigurator.configure("log/log4j.properties");
 		
 		String xmlFilePath = "C:/Users/rainkin1993/Desktop/Logfile1.XML";
@@ -46,16 +45,36 @@ public class ParseProcmonXML {
 					xmlFilePath = args[1];
 					fileKeyword  = args[2];
 					sigFilePath = args[3];
+					Document document = loadXML(xmlFilePath);
+					extractCallstackForFile(document, fileKeyword, sigFilePath);
 				} else {
 					logger.error("command format error");
 					return;
 				}
 				
 				break;
+				
 			case "match":
 				if (args.length == 3){
 					xmlFilePath = args[1];
 					sigFilePath = args[2];
+					Document document = loadXML(xmlFilePath);
+					matchCallstackSigs(document, xmlFilePath, sigFilePath);
+				} else {
+					logger.error("command format error");
+					return;
+				}
+				
+				break;
+				
+			case "convertXML2SimplifedFormat":
+				if (args.length == 3){
+					xmlFilePath = args[1];
+					String outputFilePath = args[2];
+					logger.info("\n==========starting===========\n");
+					Document document = loadXML(xmlFilePath);
+					convertProcmonXML2SimplifiedFormat(document, outputFilePath);
+					logger.info("\n==========ending===========\n");
 				} else {
 					logger.error("command format error");
 					return;
@@ -73,7 +92,11 @@ public class ParseProcmonXML {
 		} else {
 			logger.error("command error");
 			return;
-		}
+		}		
+	}
+
+	private static Document loadXML(String xmlFilePath) throws DocumentException{
+		logger.info("load xml : " + xmlFilePath);
 		
 		// load xml file
 		Date dNow = new Date();
@@ -87,28 +110,8 @@ public class ParseProcmonXML {
 		dNow = new Date();
 		ft = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
 		logger.info("Ending Current Date: " + ft.format(dNow));
-		
-		
-		switch (command){
-			case "extract":
-				extractCallstackForFile(document, fileKeyword, sigFilePath);
-				break;
-			case "match":
-				matchCallstackSigs(document, xmlFilePath, sigFilePath);
-				break;
-			
-			default:
-				logger.error("No command");
-
-		}
-		
-		
-		
-		
-		
-		
+		return document;
 	}
-
 
 
 	public static void treeWalk(Element element) {
@@ -165,7 +168,42 @@ public class ParseProcmonXML {
 			
 	}
 	
-
+	public static void convertProcmonXML2SimplifiedFormat(Document document, String outputFilePath) throws DocumentException, IOException{
+		
+		BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(outputFilePath));
+		List<SimplifiedEvent> simplifiedEvents = new ArrayList<SimplifiedEvent>();
+		
+		
+		Element root = document.getRootElement();
+		Element processList = root.element("processlist");
+		Element eventlist = root.element("eventlist");
+		
+		for (Iterator<Element> it = eventlist.elementIterator(); it.hasNext();) {
+			Element event = it.next();
+			String process_name = event.selectSingleNode("Process_Name").getText();
+			String operation = event.selectSingleNode("Operation").getText();
+			String path = event.selectSingleNode("Path").getText();
+			Element stack = (Element) event.selectSingleNode("stack");			
+			
+				
+			List<Node> stackFrameLocations = stack.selectNodes("frame/location");
+			List<Node> stackFrameAddresses = stack.selectNodes("frame/address");
+			List<String> userModeLocations = new ArrayList<String>();
+			for (int index = 0; index < stackFrameLocations.size(); index++){
+				String location = stackFrameLocations.get(index).getText();
+				String address = stackFrameAddresses.get(index).getText();
+				if (!address.startsWith("0xf")){
+					userModeLocations.add(location);
+				}								
+			}
+			SimplifiedEvent newEvent = new SimplifiedEvent(process_name, operation, path, userModeLocations);
+			simplifiedEvents.add(newEvent);		
+		}
+		
+		outputFileWriter.write(new GsonBuilder().setPrettyPrinting().create().toJson(simplifiedEvents));
+		outputFileWriter.flush();
+		outputFileWriter.close();
+}
 	
 	public static void extractCallstackForFile(Document document, String fileKeyword, String outputFilePath) throws DocumentException, IOException{
 		
@@ -209,6 +247,67 @@ public class ParseProcmonXML {
 		outputFileWriter.close();
 		
 	}
+}
+
+class SimplifiedEvent{
+	public String process_name;
+	public String operation;
+	public String path;
+	public List<String> stack;
+	
+	public SimplifiedEvent(String process_name, String operation, String path, List<String> stack) {
+		super();
+		this.process_name = process_name;
+		this.operation = operation;
+		this.path = path;
+		this.stack = stack;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((operation == null) ? 0 : operation.hashCode());
+		result = prime * result + ((path == null) ? 0 : path.hashCode());
+		result = prime * result + ((process_name == null) ? 0 : process_name.hashCode());
+		result = prime * result + ((stack == null) ? 0 : stack.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SimplifiedEvent other = (SimplifiedEvent) obj;
+		if (operation == null) {
+			if (other.operation != null)
+				return false;
+		} else if (!operation.equals(other.operation))
+			return false;
+		if (path == null) {
+			if (other.path != null)
+				return false;
+		} else if (!path.equals(other.path))
+			return false;
+		if (process_name == null) {
+			if (other.process_name != null)
+				return false;
+		} else if (!process_name.equals(other.process_name))
+			return false;
+		if (stack == null) {
+			if (other.stack != null)
+				return false;
+		} else if (!stack.equals(other.stack))
+			return false;
+		return true;
+	}
+	
+	
+	
 }
 
 class OperationWithCallstack{

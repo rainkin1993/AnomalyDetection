@@ -12,3 +12,69 @@ Starting Current Date: 星期五 2018.08.24 at 05:49:03 下午 CST
 command error
 [ERROR] 2018-08-24 17:50:29,373 method:ParseProcmonXML.main(ParseProcmonXML.java:74)
 command error
+[INFO ] 2018-08-24 20:10:17,363 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:100)
+Starting Current Date: 星期五 2018.08.24 at 08:10:17 下午 CST
+[INFO ] 2018-08-24 20:10:17,795 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:108)
+Ending Current Date: 星期五 2018.08.24 at 08:10:17 下午 CST
+[INFO ] 2018-08-24 20:11:26,512 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:100)
+Starting Current Date: 星期五 2018.08.24 at 08:11:26 下午 CST
+[INFO ] 2018-08-24 20:11:26,838 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:108)
+Ending Current Date: 星期五 2018.08.24 at 08:11:26 下午 CST
+[INFO ] 2018-08-24 20:11:37,669 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:100)
+Starting Current Date: 星期五 2018.08.24 at 08:11:37 下午 CST
+[INFO ] 2018-08-24 20:11:38,017 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:108)
+Ending Current Date: 星期五 2018.08.24 at 08:11:38 下午 CST
+[INFO ] 2018-08-24 20:12:52,236 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:100)
+Starting Current Date: 星期五 2018.08.24 at 08:12:52 下午 CST
+[INFO ] 2018-08-24 20:12:52,549 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:108)
+Ending Current Date: 星期五 2018.08.24 at 08:12:52 下午 CST
+[INFO ] 2018-08-25 09:58:06,628 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:98)
+Starting Current Date: 星期六 2018.08.25 at 09:58:06 上午 CST
+[INFO ] 2018-08-25 09:58:06,997 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:106)
+Ending Current Date: 星期六 2018.08.25 at 09:58:06 上午 CST
+[INFO ] 2018-08-25 09:58:36,000 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:98)
+Starting Current Date: 星期六 2018.08.25 at 09:58:35 上午 CST
+[INFO ] 2018-08-25 09:59:22,651 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:98)
+Starting Current Date: 星期六 2018.08.25 at 09:59:22 上午 CST
+[INFO ] 2018-08-25 10:00:48,268 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:101)
+Starting Current Date: 星期六 2018.08.25 at 10:00:48 上午 CST
+[INFO ] 2018-08-25 10:05:42,704 method:ParseProcmonXML.main(ParseProcmonXML.java:74)
+
+==========starting===========
+
+[INFO ] 2018-08-25 10:05:42,706 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:99)
+load xml : F:\procmon_traces\procmon\browsers.xml
+[INFO ] 2018-08-25 10:05:42,710 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:104)
+Starting Current Date: 星期六 2018.08.25 at 10:05:42 上午 CST
+[INFO ] 2018-08-25 10:05:43,076 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:112)
+Ending Current Date: 星期六 2018.08.25 at 10:05:43 上午 CST
+[INFO ] 2018-08-25 10:05:43,414 method:ParseProcmonXML.main(ParseProcmonXML.java:77)
+
+==========ending===========
+
+[INFO ] 2018-08-25 10:06:26,565 method:ParseProcmonXML.main(ParseProcmonXML.java:74)
+==========starting===========
+
+[INFO ] 2018-08-25 10:06:26,567 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:99)
+load xml : F:\procmon_traces\procmon\browsers.xml
+[INFO ] 2018-08-25 10:06:26,571 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:104)
+Starting Current Date: 星期六 2018.08.25 at 10:06:26 上午 CST
+[INFO ] 2018-08-25 10:06:26,943 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:112)
+Ending Current Date: 星期六 2018.08.25 at 10:06:26 上午 CST
+[INFO ] 2018-08-25 10:06:27,308 method:ParseProcmonXML.main(ParseProcmonXML.java:77)
+==========ending===========
+
+[INFO ] 2018-08-25 10:06:34,253 method:ParseProcmonXML.main(ParseProcmonXML.java:74)
+
+==========starting===========
+
+[INFO ] 2018-08-25 10:06:34,255 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:99)
+load xml : F:\procmon_traces\procmon\browsers.xml
+[INFO ] 2018-08-25 10:06:34,259 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:104)
+Starting Current Date: 星期六 2018.08.25 at 10:06:34 上午 CST
+[INFO ] 2018-08-25 10:06:34,594 method:ParseProcmonXML.loadXML(ParseProcmonXML.java:112)
+Ending Current Date: 星期六 2018.08.25 at 10:06:34 上午 CST
+[INFO ] 2018-08-25 10:06:35,035 method:ParseProcmonXML.main(ParseProcmonXML.java:77)
+
+==========ending===========
+

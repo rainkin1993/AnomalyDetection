@@ -1,3 +1,4 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,6 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
+
+import javax.print.attribute.standard.MediaSize.ISO;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -81,7 +84,19 @@ public class ParseProcmonXML {
 				}
 				
 				break;
-				
+			
+			case "splitXML":
+				if (args.length == 3){
+					xmlFilePath = args[1];
+					int limitedLineNumber = Integer.parseInt(args[2]);
+					logger.info("\n==========starting===========\n");
+					splitXML(xmlFilePath, limitedLineNumber);
+					logger.info("\n==========ending===========\n");
+				} else {
+					logger.error("command format error");
+					return;
+				}
+				break;
 			default:
 				logger.error("command error");
 				return;
@@ -166,6 +181,68 @@ public class ParseProcmonXML {
 		
 		System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(matchedResult));
 			
+	}
+	
+	public static void splitXML(String xmlFilePath, int limitedLineNumber) throws IOException{
+		BufferedReader reader = new BufferedReader(new FileReader(xmlFilePath));
+		int currentEventNumber = 0;
+		StringBuilder eventlistOutputContent = new StringBuilder();
+		StringBuilder processlistOutputContent = new StringBuilder();
+		int splitIndex = 0;
+		
+		String line = reader.readLine(); // <?xml version="1.0" encoding="UTF-8"?>
+		line = reader.readLine(); // <procmon><processlist><process>
+		line = reader.readLine(); // <ProcessIndex>xxx</ProcessIndex>
+		processlistOutputContent.append("<processlist><process>");
+		while (line != null){					
+			if (!line.startsWith("</processlist>")){
+				processlistOutputContent.append(line).append("\n"); // adding process list
+			} else {
+				processlistOutputContent.append("</processlist>");
+				BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(xmlFilePath + "_" + "processlist"));
+				outputFileWriter.write(processlistOutputContent.toString());
+				outputFileWriter.close();
+				break; // end at </processlist><eventlist>
+			}				
+			line = reader.readLine();
+		}
+		
+		
+		line = reader.readLine(); // start at <event>
+		while (line != null){
+			eventlistOutputContent.append(line).append("\n");
+			if (line.startsWith("</event>")){
+				currentEventNumber++;
+				if (currentEventNumber >= limitedLineNumber){	
+					// write to a file
+					eventlistOutputContent.insert(0, "<eventlist>");
+					eventlistOutputContent.append("</eventlist>");
+					BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(xmlFilePath + "_eventlist - " + splitIndex));
+					splitIndex++;
+					outputFileWriter.write(eventlistOutputContent.toString());
+					outputFileWriter.close();
+					
+					// reset
+					currentEventNumber = 0;
+					eventlistOutputContent = new StringBuilder();
+				}
+			}
+				
+			line = reader.readLine();
+		}
+		reader.close();
+		
+		// rest
+		eventlistOutputContent.delete(eventlistOutputContent.length() - "</eventlist></procmon>".length() - 1, eventlistOutputContent.length());
+		eventlistOutputContent.insert(0, "<eventlist>");
+		eventlistOutputContent.append("</eventlist>");
+		if (eventlistOutputContent.length() != 0){
+			BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(xmlFilePath + "_eventlist - " + splitIndex));
+			splitIndex++;
+			outputFileWriter.write(eventlistOutputContent.toString());
+			outputFileWriter.close();
+		}				
+		
 	}
 	
 	public static void convertProcmonXML2SimplifiedFormat(Document document, String outputFilePath) throws DocumentException, IOException{

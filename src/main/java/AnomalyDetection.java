@@ -179,25 +179,26 @@ public class AnomalyDetection {
 	}
 
 
-	private static Map<String, AnomalModelForOneApp> extractAnomalyModel(Document document, boolean isStopAtUserModuleAddress) {
+	public static Map<String, AnomalModelForOneApp> extractAnomalyModel(Document document, boolean isStopAtUserModuleAddress) {
 		Map<String, AnomalModelForOneApp> app2anomalModel = new HashMap<String, AnomalModelForOneApp>();		
 		Map<String, StatisticsForOneApp> app2Statistics = new HashMap<String, StatisticsForOneApp>();
 		
-		Element root = document.getRootElement();
-		Element processList = root.element("processlist");
-		Element eventlist = root.element("eventlist");		
-		
+//		Element root = document.getRootElement();
+//		Element processList = root.element("processlist");
+//		Element eventlist = root.element("eventlist");		
+		Element eventlist = document.getRootElement();
+				
 		// processing processes
-		Map<Integer, BasicProcess> pid2Process = new HashMap<Integer, BasicProcess>();		
-		for (Iterator<Element> it = processList.elementIterator(); it.hasNext();) {
-			Element event = it.next();
-			int processId = new Integer(event.selectSingleNode("ProcessId").getText());
-			int parentProcessId = new Integer(event.selectSingleNode("ParentProcessId").getText());
-			String processName = event.selectSingleNode("ProcessName").getText();
-			
-			BasicProcess process = new BasicProcess(processId, parentProcessId, processName);
-			pid2Process.put(processId, process);			
-		}
+//		Map<Integer, BasicProcess> pid2Process = new HashMap<Integer, BasicProcess>();		
+//		for (Iterator<Element> it = processList.elementIterator(); it.hasNext();) {
+//			Element event = it.next();
+//			int processId = new Integer(event.selectSingleNode("ProcessId").getText());
+//			int parentProcessId = new Integer(event.selectSingleNode("ParentProcessId").getText());
+//			String processName = event.selectSingleNode("ProcessName").getText();
+//			
+//			BasicProcess process = new BasicProcess(processId, parentProcessId, processName);
+//			pid2Process.put(processId, process);			
+//		}
 		
 		// processing events
 		for (Iterator<Element> it = eventlist.elementIterator(); it.hasNext();) {

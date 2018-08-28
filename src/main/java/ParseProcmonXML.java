@@ -5,12 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
@@ -29,6 +35,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
+
+import edu.zju.BasicClass.AnomalModelForOneApp;
 
 public class ParseProcmonXML {
 	static Logger logger = Logger.getLogger(ParseProcmonXML.class); 
@@ -97,6 +105,21 @@ public class ParseProcmonXML {
 					return;
 				}
 				break;
+				
+			case "statisticsUniqueCallstack":
+				if (args.length == 4){
+					xmlFilePath = args[1];
+					int windowNumber = Integer.parseInt(args[2]);
+					boolean isStopAtUserModuleAddress = Boolean.parseBoolean(args[3]);
+					logger.info("\n==========starting===========\n");
+					logger.info(String.format("method:%s\nxmlFilePath:%s\nwindowNumber:%s\nisStopAtUserModuleAddress:%s\n", "statisticsUniqueCallstack", xmlFilePath, windowNumber, isStopAtUserModuleAddress));
+					statisticsUniqueCallstack(xmlFilePath, windowNumber, isStopAtUserModuleAddress);
+					logger.info("\n==========ending===========\n");
+				} else {
+					logger.error("command format error");
+					return;
+				}
+				break;
 			default:
 				logger.error("command error");
 				return;
@@ -109,6 +132,7 @@ public class ParseProcmonXML {
 			return;
 		}		
 	}
+
 
 	private static Document loadXML(String xmlFilePath) throws DocumentException{
 		logger.info("load xml : " + xmlFilePath);
@@ -142,6 +166,76 @@ public class ParseProcmonXML {
 		}
 	}
 	
+
+	private static void statisticsUniqueCallstack(String xmlFilePath, int windowNumber, boolean isStopAtUserModuleAddress) throws DocumentException {
+		// TODO Auto-generated method stub
+		String processlistFilePath = xmlFilePath + "_processlist";
+		
+		String xmlFileDirPath = xmlFilePath.substring(0, xmlFilePath.lastIndexOf(File.separator));
+		String xmlFileName = xmlFilePath.substring(xmlFilePath.lastIndexOf(File.separator)+1);
+        File f = new File(xmlFileDirPath);
+        
+        // get all eventlist files
+        FilenameFilter fileNameFilter = new FilenameFilter() {
+  
+           @Override
+           public boolean accept(File dir, String name) {
+              if (name.startsWith(xmlFileName + "_eventlist - "))
+            	  return true;
+              else 
+            	  return false;
+           }
+        };
+        // returns pathnames for files and directory
+        File[] paths = f.listFiles(fileNameFilter);
+        Arrays.sort(paths, new EventlistFileComparator());
+        
+        logger.info(new Gson().toJson(paths));
+        
+        Map<String, AnomalModelForOneApp>  app2TotalUniqueCallstacks = new HashMap<String, AnomalModelForOneApp>();
+        Map<String, Map<String, List<Integer>>> app2UniqueCallstacksTracking = new HashMap<String, Map<String, List<Integer>>>();
+        // for each pathname in pathname array
+        for(File path:paths)
+        {
+           // prints file and directory paths
+           logger.info("starting processing " + path);           
+           Document document = loadXML(path.getAbsolutePath());
+           Map<String, AnomalModelForOneApp> app2AnomalMode = AnomalyDetection.extractAnomalyModel(document, isStopAtUserModuleAddress);
+           for (String appName : app2AnomalMode.keySet()){
+        	   logger.info("&&&&&&& " + appName + "&&&&&&&");
+        	   AnomalModelForOneApp anomalModelForOneApp = app2AnomalMode.get(appName);
+        	   
+        	   if (!app2TotalUniqueCallstacks.containsKey(appName))
+        		   app2TotalUniqueCallstacks.put(appName, new AnomalModelForOneApp());
+        	   AnomalModelForOneApp totalUniqueCallstacks = app2TotalUniqueCallstacks.get(appName);
+        	   mergeTwoHashMap(totalUniqueCallstacks.operation2normalCallstacks, anomalModelForOneApp.operation2normalCallstacks);
+        	   
+        	   
+        	   if (!app2UniqueCallstacksTracking.containsKey(appName))
+        		   app2UniqueCallstacksTracking.put(appName, new HashMap<String, List<Integer>>());
+        	   Map<String, List<Integer>> uniqueCallstacksTracking = app2UniqueCallstacksTracking.get(appName);
+        	   for (String operation : totalUniqueCallstacks.operation2normalCallstacks.keySet()){
+        		   System.out.println(operation + " : " + totalUniqueCallstacks.operation2normalCallstacks.get(operation).size());
+        		   if (!uniqueCallstacksTracking.containsKey(operation))
+        			   uniqueCallstacksTracking.put(operation, new ArrayList<>());
+        		   uniqueCallstacksTracking.get(operation).add(totalUniqueCallstacks.operation2normalCallstacks.get(operation).size());
+        	   }
+        	   
+           }
+           
+        }
+        
+        logger.info(new Gson().toJson(app2UniqueCallstacksTracking));
+	}
+	
+	private static void mergeTwoHashMap(Map<String, Set<List<String>>> merger, Map<String, Set<List<String>>> mergee){
+		for (String operation : mergee.keySet()){
+			if (merger.containsKey(operation))
+				merger.get(operation).addAll(mergee.get(operation));
+			else
+				merger.put(operation, mergee.get(operation));			
+		}
+	}
 	
 	private static void matchCallstackSigs(Document document, String xmlFilePath, String sigFilePath) throws JsonIOException, JsonSyntaxException, FileNotFoundException {
 		// load sigs
@@ -438,4 +532,18 @@ class OperationWithCallstack{
 	
 	
 	
+}
+
+class EventlistFileComparator implements Comparator<File> {
+
+	@Override
+	public int compare(File file1, File file2) {
+		// TODO Auto-generated method stub
+		String filePath1 = file1.getPath();
+		String filePath2 = file2.getPath();
+		int fileIndex1 = Integer.parseInt(filePath1.substring(filePath1.lastIndexOf("eventlist - ") + "eventlist - ".length()));
+		int fileIndex2 = Integer.parseInt(filePath2.substring(filePath2.lastIndexOf("eventlist - ") + "eventlist - ".length()));
+//		System.out.println(fileIndex1 + " " + fileIndex2);
+		return fileIndex1 - fileIndex2;
+	}
 }

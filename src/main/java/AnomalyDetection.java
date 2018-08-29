@@ -262,6 +262,8 @@ public class AnomalyDetection {
 					userModeLocations.add(locationNode.getText().toLowerCase());
 					if (isStopAtUserModuleAddress){ 
 						String lowcaseDllPath = dllPathNode.getText().toLowerCase();
+						if (lowcaseDllPath.contains("sogou"))
+							break;
 						if (!lowcaseDllPath.contains("\\windows\\system32") 
 								&& !lowcaseDllPath.contains("\\windows\\syswow64")
 								&& !lowcaseDllPath.contains("\\windows\\winsxs")){

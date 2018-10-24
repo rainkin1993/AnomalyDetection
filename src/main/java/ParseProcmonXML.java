@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -167,7 +168,7 @@ public class ParseProcmonXML {
 	}
 	
 
-	private static void statisticsUniqueCallstack(String xmlFilePath, int windowNumber, boolean isStopAtUserModuleAddress) throws DocumentException {
+	private static void statisticsUniqueCallstack(String xmlFilePath, int windowNumber, boolean isStopAtUserModuleAddress) throws DocumentException, IOException {
 		// TODO Auto-generated method stub
 		String processlistFilePath = xmlFilePath + "_processlist";
 		
@@ -194,6 +195,7 @@ public class ParseProcmonXML {
         
         Map<String, AnomalModelForOneApp>  app2TotalUniqueCallstacks = new HashMap<String, AnomalModelForOneApp>();
         Map<String, Map<String, List<Integer>>> app2UniqueCallstacksTracking = new HashMap<String, Map<String, List<Integer>>>();
+        Map<String, List<AnomalModelForOneApp>> app2NewGeneratedCallstacks = new HashMap<String, List<AnomalModelForOneApp>>();
         // for each pathname in pathname array
         for(File path:paths)
         {
@@ -203,14 +205,22 @@ public class ParseProcmonXML {
            Map<String, AnomalModelForOneApp> app2AnomalMode = AnomalyDetection.extractAnomalyModel(document, isStopAtUserModuleAddress);
            for (String appName : app2AnomalMode.keySet()){
         	   logger.info("&&&&&&& " + appName + "&&&&&&&");
-        	   AnomalModelForOneApp anomalModelForOneApp = app2AnomalMode.get(appName);
-        	   
+        	   AnomalModelForOneApp anomalModelForOneApp = app2AnomalMode.get(appName);        	         	  
         	   if (!app2TotalUniqueCallstacks.containsKey(appName))
         		   app2TotalUniqueCallstacks.put(appName, new AnomalModelForOneApp());
         	   AnomalModelForOneApp totalUniqueCallstacks = app2TotalUniqueCallstacks.get(appName);
+        	   
+        	   
+        	   // new generated callstacks 	   
+        	   if (!app2NewGeneratedCallstacks.containsKey(appName))
+        		   app2NewGeneratedCallstacks.put(appName, new ArrayList<AnomalModelForOneApp>());
+        	   AnomalModelForOneApp newGeneratedCallstacks = asymmetricDifferenceOfTwoHashMap(totalUniqueCallstacks, anomalModelForOneApp);
+        	   app2NewGeneratedCallstacks.get(appName).add(newGeneratedCallstacks);
+        	   
+        	   // merge new generated callstacks per file       	   
         	   mergeTwoHashMap(totalUniqueCallstacks.operation2normalCallstacks, anomalModelForOneApp.operation2normalCallstacks);
         	   
-        	   
+        	   // statistics: the number of unique callstacks per file
         	   if (!app2UniqueCallstacksTracking.containsKey(appName))
         		   app2UniqueCallstacksTracking.put(appName, new HashMap<String, List<Integer>>());
         	   Map<String, List<Integer>> uniqueCallstacksTracking = app2UniqueCallstacksTracking.get(appName);
@@ -225,9 +235,22 @@ public class ParseProcmonXML {
            
         }
         
-        logger.info(new Gson().toJson(app2UniqueCallstacksTracking));
+        // write results to file
+        String uniqueCallstacksNumberOutputFilePath = "uniqueCallstacksNumber.json";
+        Utils.writeObjectToFileUsingJsonFormat(uniqueCallstacksNumberOutputFilePath, app2UniqueCallstacksTracking);
+        
+        String uniqueCallstacksDetailsOutputFilePath = "uniqueCallstacksDetail.json";
+        Utils.writeObjectToFileUsingJsonFormat(uniqueCallstacksDetailsOutputFilePath, app2TotalUniqueCallstacks);
+        
+        String newGeneratedCallstacksOutputFilePath = "newGeneratedCallstacks.json";
+        Utils.writeObjectToFileUsingJsonFormat(newGeneratedCallstacksOutputFilePath, app2NewGeneratedCallstacks);
 	}
 	
+	/**
+	 * merge mergee into merger
+	 * @param merger
+	 * @param mergee
+	 */
 	private static void mergeTwoHashMap(Map<String, Set<List<String>>> merger, Map<String, Set<List<String>>> mergee){
 		for (String operation : mergee.keySet()){
 			if (merger.containsKey(operation))
@@ -235,6 +258,32 @@ public class ParseProcmonXML {
 			else
 				merger.put(operation, mergee.get(operation));			
 		}
+	}
+	
+	/**
+	 * asymmetric set difference of newMap From totalMap.
+	 * @param totalMap
+	 * @param newMap
+	 * @return 
+	 */
+	private static AnomalModelForOneApp asymmetricDifferenceOfTwoHashMap(AnomalModelForOneApp totalAnomalModel, AnomalModelForOneApp newAnomalModel){
+		Map<String, Set<List<String>>> newMap = newAnomalModel.operation2normalCallstacks;
+		Map<String, Set<List<String>>> totalMap = totalAnomalModel.operation2normalCallstacks;
+		AnomalModelForOneApp asymmetricAnomalModelForOneApp = new AnomalModelForOneApp();
+		for (String operation : newMap.keySet()){
+			Set<List<String>> asymmetricSet = new HashSet<List<String>>();
+			if (totalMap.containsKey(operation)){				
+				asymmetricSet.addAll(newMap.get(operation));
+				asymmetricSet.removeAll(totalMap.get(operation));
+				asymmetricAnomalModelForOneApp.operation2normalCallstacks.put(operation, asymmetricSet);
+			}
+			else{
+				asymmetricSet.addAll(newMap.get(operation));
+				asymmetricAnomalModelForOneApp.operation2normalCallstacks.put(operation, asymmetricSet);
+			}
+							
+		}
+		return asymmetricAnomalModelForOneApp;
 	}
 	
 	private static void matchCallstackSigs(Document document, String xmlFilePath, String sigFilePath) throws JsonIOException, JsonSyntaxException, FileNotFoundException {

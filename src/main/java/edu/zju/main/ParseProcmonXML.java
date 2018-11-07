@@ -1,27 +1,19 @@
-import java.io.BufferedReader;
+package edu.zju.main;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Stack;
-import java.util.stream.Collectors;
-
-import javax.print.attribute.standard.MediaSize.ISO;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -29,7 +21,6 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.Node;
-import org.dom4j.io.SAXReader;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,6 +29,11 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import edu.zju.BasicClass.AnomalModelForOneApp;
+import edu.zju.BasicClass.OperationWithCallstack;
+import edu.zju.utils.CallstackUtils;
+import edu.zju.utils.EventlistFileComparator;
+import edu.zju.utils.ProcmonXMLReader;
+import edu.zju.utils.Utils;
 
 public class ParseProcmonXML {
 	static Logger logger = Logger.getLogger(ParseProcmonXML.class); 
@@ -57,7 +53,7 @@ public class ParseProcmonXML {
 					xmlFilePath = args[1];
 					fileKeyword  = args[2];
 					sigFilePath = args[3];
-					Document document = loadXML(xmlFilePath);
+					Document document = ProcmonXMLReader.loadXML(xmlFilePath);
 					extractCallstackForFile(document, fileKeyword, sigFilePath);
 				} else {
 					logger.error("command format error");
@@ -70,7 +66,7 @@ public class ParseProcmonXML {
 				if (args.length == 3){
 					xmlFilePath = args[1];
 					sigFilePath = args[2];
-					Document document = loadXML(xmlFilePath);
+					Document document = ProcmonXMLReader.loadXML(xmlFilePath);
 					matchCallstackSigs(document, xmlFilePath, sigFilePath);
 				} else {
 					logger.error("command format error");
@@ -84,7 +80,7 @@ public class ParseProcmonXML {
 					xmlFilePath = args[1];
 					String outputFilePath = args[2];
 					logger.info("\n==========starting===========\n");
-					Document document = loadXML(xmlFilePath);
+					Document document = ProcmonXMLReader.loadXML(xmlFilePath);
 					convertProcmonXML2SimplifiedFormat(document, outputFilePath);
 					logger.info("\n==========ending===========\n");
 				} else {
@@ -99,7 +95,7 @@ public class ParseProcmonXML {
 					xmlFilePath = args[1];
 					int limitedLineNumber = Integer.parseInt(args[2]);
 					logger.info("\n==========starting===========\n");
-					splitXML(xmlFilePath, limitedLineNumber);
+					ProcmonXMLReader.splitXML(xmlFilePath, limitedLineNumber);
 					logger.info("\n==========ending===========\n");
 				} else {
 					logger.error("command format error");
@@ -132,25 +128,6 @@ public class ParseProcmonXML {
 			logger.error("command error");
 			return;
 		}		
-	}
-
-
-	private static Document loadXML(String xmlFilePath) throws DocumentException{
-		logger.info("load xml : " + xmlFilePath);
-		
-		// load xml file
-		Date dNow = new Date();
-		SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
-		logger.info("Starting Current Date: " + ft.format(dNow));
-
-		File inputXmlFile = new File(xmlFilePath);
-		SAXReader saxReader = new SAXReader();
-		Document document = saxReader.read(inputXmlFile);
-
-		dNow = new Date();
-		ft = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
-		logger.info("Ending Current Date: " + ft.format(dNow));
-		return document;
 	}
 
 
@@ -201,7 +178,7 @@ public class ParseProcmonXML {
         {
            // prints file and directory paths
            logger.info("starting processing " + path);           
-           Document document = loadXML(path.getAbsolutePath());
+           Document document = ProcmonXMLReader.loadXML(path.getAbsolutePath());
            Map<String, AnomalModelForOneApp> app2AnomalMode = AnomalyDetection.extractAnomalyModel(document, isStopAtUserModuleAddress);
            for (String appName : app2AnomalMode.keySet()){
         	   logger.info("&&&&&&& " + appName + "&&&&&&&");
@@ -326,68 +303,6 @@ public class ParseProcmonXML {
 			
 	}
 	
-	public static void splitXML(String xmlFilePath, int limitedLineNumber) throws IOException{
-		BufferedReader reader = new BufferedReader(new FileReader(xmlFilePath));
-		int currentEventNumber = 0;
-		StringBuilder eventlistOutputContent = new StringBuilder();
-		StringBuilder processlistOutputContent = new StringBuilder();
-		int splitIndex = 0;
-		
-		String line = reader.readLine(); // <?xml version="1.0" encoding="UTF-8"?>
-		line = reader.readLine(); // <procmon><processlist><process>
-		line = reader.readLine(); // <ProcessIndex>xxx</ProcessIndex>
-		processlistOutputContent.append("<processlist><process>");
-		while (line != null){					
-			if (!line.startsWith("</processlist>")){
-				processlistOutputContent.append(line).append("\n"); // adding process list
-			} else {
-				processlistOutputContent.append("</processlist>");
-				BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(xmlFilePath + "_" + "processlist"));
-				outputFileWriter.write(processlistOutputContent.toString());
-				outputFileWriter.close();
-				break; // end at </processlist><eventlist>
-			}				
-			line = reader.readLine();
-		}
-		
-		
-		line = reader.readLine(); // start at <event>
-		while (line != null){
-			eventlistOutputContent.append(line).append("\n");
-			if (line.startsWith("</event>")){
-				currentEventNumber++;
-				if (currentEventNumber >= limitedLineNumber){	
-					// write to a file
-					eventlistOutputContent.insert(0, "<eventlist>");
-					eventlistOutputContent.append("</eventlist>");
-					BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(xmlFilePath + "_eventlist - " + splitIndex));
-					splitIndex++;
-					outputFileWriter.write(eventlistOutputContent.toString());
-					outputFileWriter.close();
-					
-					// reset
-					currentEventNumber = 0;
-					eventlistOutputContent = new StringBuilder();
-				}
-			}
-				
-			line = reader.readLine();
-		}
-		reader.close();
-		
-		// rest
-		eventlistOutputContent.delete(eventlistOutputContent.length() - "</eventlist></procmon>".length() - 1, eventlistOutputContent.length());
-		eventlistOutputContent.insert(0, "<eventlist>");
-		eventlistOutputContent.append("</eventlist>");
-		if (eventlistOutputContent.length() != 0){
-			BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(xmlFilePath + "_eventlist - " + splitIndex));
-			splitIndex++;
-			outputFileWriter.write(eventlistOutputContent.toString());
-			outputFileWriter.close();
-		}				
-		
-	}
-	
 	public static void convertProcmonXML2SimplifiedFormat(Document document, String outputFilePath) throws DocumentException, IOException{
 		
 		BufferedWriter outputFileWriter = new BufferedWriter(new FileWriter(outputFilePath));
@@ -446,15 +361,7 @@ public class ParseProcmonXML {
 				
 				List<Node> stackFrameLocations = stack.selectNodes("frame/location");
 				List<Node> stackFrameAddresses = stack.selectNodes("frame/address");
-				List<String> userModeLocations = new ArrayList<String>();
-				for (int index = 0; index < stackFrameLocations.size(); index++){
-					String location = stackFrameLocations.get(index).getText();
-					String address = stackFrameAddresses.get(index).getText();
-					if (!address.startsWith("0xffff")){
-						userModeLocations.add(location);
-					}
-					
-				}
+				List<String> userModeLocations = CallstackUtils.selectCallstacks(stackFrameLocations, stackFrameAddresses);
 				
 				OperationWithCallstack newSig = new OperationWithCallstack(operation, path, userModeLocations);
 				sigs.add(newSig);
@@ -530,69 +437,3 @@ class SimplifiedEvent{
 	
 }
 
-class OperationWithCallstack{
-	public String operation;
-	public String path;
-	public List<String> stack;
-	
-	public OperationWithCallstack(String operation, String path, List<String> stack) {
-		super();
-		this.operation = operation;
-		this.path = path;
-		this.stack = stack;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((operation == null) ? 0 : operation.hashCode());
-		result = prime * result + ((path == null) ? 0 : path.hashCode());
-		result = prime * result + ((stack == null) ? 0 : stack.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		OperationWithCallstack other = (OperationWithCallstack) obj;
-		if (operation == null) {
-			if (other.operation != null)
-				return false;
-		} else if (!operation.equals(other.operation))
-			return false;
-		if (path == null) {
-			if (other.path != null)
-				return false;
-		} else if (!path.equals(other.path))
-			return false;
-		if (stack == null) {
-			if (other.stack != null)
-				return false;
-		} else if (!stack.equals(other.stack))
-			return false;
-		return true;
-	}
-	
-	
-	
-}
-
-class EventlistFileComparator implements Comparator<File> {
-
-	@Override
-	public int compare(File file1, File file2) {
-		// TODO Auto-generated method stub
-		String filePath1 = file1.getPath();
-		String filePath2 = file2.getPath();
-		int fileIndex1 = Integer.parseInt(filePath1.substring(filePath1.lastIndexOf("eventlist - ") + "eventlist - ".length()));
-		int fileIndex2 = Integer.parseInt(filePath2.substring(filePath2.lastIndexOf("eventlist - ") + "eventlist - ".length()));
-//		System.out.println(fileIndex1 + " " + fileIndex2);
-		return fileIndex1 - fileIndex2;
-	}
-}

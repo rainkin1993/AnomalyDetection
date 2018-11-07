@@ -1,3 +1,4 @@
+package edu.zju.main;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -117,7 +118,7 @@ public class GenerateCallGraphMain {
 	}
 	
 	public static void exportCallstackItemToDotGraph(Graph<String, DefaultEdge> graph, String dotExePath, String traceDirPath, String appName, String opeartionName, String graphFileExtend){
-		DOTExporter<String, DefaultEdge> exporter = new DOTExporter<String, DefaultEdge>(new StringComponentNameProvider<String>(), null, null);
+		 DOTExporter<String, DefaultEdge> exporter = new DOTExporter<String, DefaultEdge>(new StringComponentNameProvider<String>(), null, null);
 		 File outputDir = new File(traceDirPath);
 		 if (!outputDir.exists())
 			 outputDir.mkdirs();

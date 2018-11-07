@@ -33,7 +33,8 @@ public class Transformer implements Callable<Void>{
 	@Option(names = "-i", required = true, description = "directory path of procmon txt files ")
 	String inputSigDirPath;
 	
-	private String sigFileExtension = ".semanticEventSig";
+	@Option(names = "-sigFileExtension", description = "file extension of sig file")
+	String sigFileExtension = ".semanticEventSig";
 //	@Option(names = "-i_trace", required = true, description = "trace ")
 //	String inputTFilePath;
 	

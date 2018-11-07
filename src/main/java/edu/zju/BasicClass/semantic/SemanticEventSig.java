@@ -16,31 +16,33 @@ public class SemanticEventSig {
 
 	public String semantic;
 	public List<String> callstacks;
+	public String operation;
 	
-	public SemanticEventSig(String semantic, List<String> callstacks) {
+	
+	public SemanticEventSig(String semantic, List<String> callstacks, String operation) {
 		super();
 		this.semantic = semantic;
 		this.callstacks = callstacks;
+		this.operation = operation;
 	}
-	
-	
+
 	/**
 	 * judge whether the sig match the event
-	 * Note that event is matched has two conditions: callstack is matched and event is normal
+	 * Note that event is matched has 3 conditions: operation is matched, callstack is matched and event is normal
 	 * Event is normal means that some events are useless while the callstack can be matched with sig. 
 	 * Such as the ReadFile operation whose result is END OF FILE is meaningless.
 	 * @param eventElement
 	 * @return
 	 */
 	public boolean matchEvent(Element eventElement){
-		List<Node> stackFrameLocations = eventElement.selectNodes("stack/frame/location");
-		List<Node> stackFrameAddresses = eventElement.selectNodes("stack/frame/address");
-		List<String> callstacks = CallstackUtils.selectCallstacks(stackFrameLocations, stackFrameAddresses);
-		
-		boolean isCallstackMatched = this.callstacks.equals(callstacks);
-		boolean isNormal = true;
-		
+		// whether operation matched
 		String operation = eventElement.selectSingleNode("Operation").getText();
+		boolean isOperationMatched = this.operation.equals(operation);
+		if (!isOperationMatched)
+			return false;
+		
+		// whether the operation is normal
+		boolean isNormal = true;				
 		String result = eventElement.selectSingleNode("Result").getText();
 		switch (operation) {
 		case "ReadFile":
@@ -51,9 +53,19 @@ public class SemanticEventSig {
 		default:
 			break;
 		}
+		if (!isNormal)
+			return false;		
 		
-		return isCallstackMatched && isNormal;
-		
+		// whether callstack matched
+		List<Node> stackFrameLocations = eventElement.selectNodes("stack/frame/location");
+		List<Node> stackFrameAddresses = eventElement.selectNodes("stack/frame/address");
+		List<String> callstacks = CallstackUtils.selectCallstacks(stackFrameLocations, stackFrameAddresses);
+		boolean isCallstackMatched = this.callstacks.equals(callstacks);
+		if (!isCallstackMatched)
+			return false;
+		else 
+			return true;
+
 	}
 
 	@Override

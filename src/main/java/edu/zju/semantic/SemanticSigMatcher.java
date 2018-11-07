@@ -190,10 +190,7 @@ public class SemanticSigMatcher extends ProcmonXMLReader {
 					// 获得命令执行后在控制台的输出信息
 					logger.info(lineStr);// 打印输出信息
 				// 检查命令是否执行失败。
-				if (p.waitFor() != 0) {
-					logger.error("wait for != 0");					
-					logger.error("exit code " + p.exitValue());
-					
+				if (p.waitFor() != 0) {					
 					int len;
 					if ((len = p.getErrorStream().available()) > 0) {
 					  byte[] buf = new byte[len]; 

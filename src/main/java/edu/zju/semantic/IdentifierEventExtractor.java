@@ -48,7 +48,8 @@ public class IdentifierEventExtractor extends ProcmonXMLReader {
 			List<Node> stackFrameLocations = eventElement.selectNodes("stack/frame/location");
 			List<Node> stackFrameAddresses = eventElement.selectNodes("stack/frame/address");
 			List<String> callstacks = CallstackUtils.selectCallstacks(stackFrameLocations, stackFrameAddresses);
-			SemanticEventSig sig = new SemanticEventSig(semantic, callstacks);
+			String operation = eventElement.selectSingleNode("Operation").getText();
+			SemanticEventSig sig = new SemanticEventSig(semantic, callstacks, operation);
 			sigs.add(sig);
 		}
 		

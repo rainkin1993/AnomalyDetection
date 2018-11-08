@@ -41,6 +41,9 @@ public class SemanticSigMatcher extends ProcmonXMLReader {
 	private Map<SemanticProcess, List<SemanticEvent>> process2events = new HashMap<SemanticProcess, List<SemanticEvent>>();
 	private Graph<SemanticVertex, SemanticEdge> graph = new DirectedPseudograph<SemanticVertex, SemanticEdge>(SemanticEdge.class);
 	
+	// store last event for each process
+	private Map<SemanticProcess, SemanticEvent> process2lastEvent = new HashMap<SemanticProcess, SemanticEvent>(); 
+	
 	private List<SemanticEventSig> sigs;
 	
 	public SemanticSigMatcher(String xmlFilePath, List<SemanticEventSig> sigs) {
@@ -93,66 +96,78 @@ public class SemanticSigMatcher extends ProcmonXMLReader {
 	}
 	
 	private void processSemanticEvent(Element eventElement, String semantic) {
-		SemanticEvent semanticEvent = new SemanticEvent(eventElement, semantic);
+		SemanticEvent currentSemanticEvent = new SemanticEvent(eventElement, semantic);
 
 //		logger.error(semanticEvent);
 		// store all semantic events
-		semanticEvents.add(semanticEvent);
+		semanticEvents.add(currentSemanticEvent);
 		
 		
 		// add vertex and edge to the graph
-		SemanticProcess process = new SemanticProcess(semanticEvent.pid, semanticEvent.tid, semanticEvent.ppid, semanticEvent.processName);
-		SemanticVertex objectVertex = null;
-		SemanticEdge edge = new SemanticEdge(semanticEvent.operation, semanticEvent.detail, semanticEvent.result, semanticEvent.time, semanticEvent.semantic);
-
-		boolean isFromProcess2Object = true;
-		switch (semanticEvent.operation) {
-		case "WriteFile":
-			isFromProcess2Object = true;
-			objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(semanticEvent.path));
-			break;
-			
-		case "ReadFile":
-			isFromProcess2Object = false;
-			objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(semanticEvent.path));
-			break;
-			
-		case "SetRenameInformationFile":
-			isFromProcess2Object = true;
-			String renameNewFilePath = eventElement.selectSingleNode("Detail").getText();
-			renameNewFilePath = renameNewFilePath.split("FileName: ")[1];
-			objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(renameNewFilePath));
-			break;
-
-		case "QueryBasicInformationFile":
-			isFromProcess2Object = true;
-			objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(semanticEvent.path));
-			break;
 		
-		case "CreateFile":
-			isFromProcess2Object = true;
-			objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(semanticEvent.path));
-			break;
+		SemanticProcess process = new SemanticProcess(currentSemanticEvent.pid, currentSemanticEvent.tid, currentSemanticEvent.ppid, currentSemanticEvent.processName);
+		if (!process2lastEvent.containsKey(process)
+				|| !process2lastEvent.get(process).canBeMerged(currentSemanticEvent)){
 			
-		default:
-			logger.error("unprocessed event");
-			logger.error(semanticEvent);
-			System.exit(1);
-			break;
+			process2lastEvent.put(process, currentSemanticEvent);
+			
+			SemanticVertex objectVertex = null;
+			SemanticEdge edge = new SemanticEdge(currentSemanticEvent.operation, currentSemanticEvent.detail, currentSemanticEvent.result, currentSemanticEvent.time, currentSemanticEvent.semantic);
+
+			boolean isFromProcess2Object = true;
+			switch (currentSemanticEvent.operation) {
+			case "WriteFile":
+				isFromProcess2Object = true;
+				objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(currentSemanticEvent.path));
+				break;
+				
+			case "ReadFile":
+				isFromProcess2Object = false;
+				objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(currentSemanticEvent.path));
+				break;
+				
+			case "SetRenameInformationFile":
+				isFromProcess2Object = true;
+				String renameNewFilePath = eventElement.selectSingleNode("Detail").getText();
+				renameNewFilePath = renameNewFilePath.split("FileName: ")[1];
+				objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(renameNewFilePath));
+				break;
+
+			case "QueryBasicInformationFile":
+				isFromProcess2Object = true;
+				objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(currentSemanticEvent.path));
+				break;
+			
+			case "CreateFile":
+				isFromProcess2Object = true;
+				objectVertex = new SemanticFile(Utils.convert2DotCompatibleString(currentSemanticEvent.path));
+				break;
+				
+			default:
+				logger.error("unprocessed event");
+				logger.error(currentSemanticEvent);
+				System.exit(1);
+				break;
+			}
+			
+			graph.addVertex(process);
+			graph.addVertex(objectVertex);
+			if (isFromProcess2Object)
+				graph.addEdge(process, objectVertex, edge);
+			else 
+				graph.addEdge(objectVertex, process, edge);
+			
+		} else {
+			process2lastEvent.put(process, currentSemanticEvent);
 		}
 		
-		graph.addVertex(process);
-		graph.addVertex(objectVertex);
-		if (isFromProcess2Object)
-			graph.addEdge(process, objectVertex, edge);
-		else 
-			graph.addEdge(objectVertex, process, edge);
+		
 		
 		
 		// split events by process
 		if (!process2events.containsKey(process))
 			process2events.put(process, new ArrayList<SemanticEvent>());
-		process2events.get(process).add(semanticEvent);
+		process2events.get(process).add(currentSemanticEvent);
 		
 		
 	}

@@ -18,6 +18,37 @@ public class SemanticEvent {
 	
 	public String semantic;
 	
+	/**
+	 * two continuous events for the same thread, 
+	 * if operation, path and time interval < xxx
+	 * then these two events can be merged
+	 * @param event
+	 * @return
+	 */
+	public boolean canBeMerged(SemanticEvent event){
+		boolean isMerged = false;
+		
+		double defaultInterval = 2; // 1 second
+		
+		if (this.operation.equals(event.operation)
+				&& this.path.equals(event.path)
+				&& this.pid == event.pid
+				&& this.tid == event.tid){
+			
+			String[] firstTimeTmp = this.time.split(" ")[1].split(":");
+			double firstTimeSeconds = Integer.parseInt(firstTimeTmp[0]) * 60 * 60 + Integer.parseInt(firstTimeTmp[1]) * 60 + Double.parseDouble(firstTimeTmp[2]);
+			String[] secondTimeTmp = event.time.split(" ")[1].split(":");
+			double secondTimeSeconds = Integer.parseInt(secondTimeTmp[0]) * 60 * 60 + Integer.parseInt(secondTimeTmp[1]) * 60 + Double.parseDouble(secondTimeTmp[2]);
+			
+			if (secondTimeSeconds - firstTimeSeconds <= defaultInterval)
+				isMerged = true;
+		}
+		
+		return isMerged;
+		
+			
+	}
+	
 	public SemanticEvent(Element element, String semantic){
 		this.operation = element.selectSingleNode("Operation").getText();
 		this.path = element.selectSingleNode("Path").getText();
